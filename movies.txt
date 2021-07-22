@@ -1,0 +1,31 @@
+movies
+1.	write a query in sql to find the name and year of the movies.
+select mov_title, mov_year from movie;
+
+2.	write a query in sql to find the year when the movie american beauty released.
+select mov_year from movie where mov_title='american beauty';
+
+3.	write a query in sql to find the movie which was released in the year 1999.   
+select mov_title from movie where mov_year=1999;
+
+4.write a query in sql to find the movies which was released before 1998.
+select mov_title from movie where mov_year<1998;
+
+5.	write a query in sql to return the name of all reviewers and name of movies together in a single list.
+select reviewer.rev_name from reviewer union (select movie.mov_title from movie);
+
+6.	write a query in sql to find the name of all reviewers who have rated 7 or more stars to their rating
+select reviewer.rev_name from reviewer, rating where rating.rev_id = reviewer.rev_id and rating.rev_stars>=7;
+
+7.	write a query in sql to find the titles of all movies that have no ratings. 
+select mov_title from movie where mov_id not in ( select mov_id  from rating);
+
+8.	write a query in sql to find the titles of the movies with id 905, 907, 917. 
+select mov_title from movie where mov_id in (905, 907, 917);
+
+9.	write a query in sql to find the list of all those movies with year which include the words boogie nights
+select mov_id, mov_title, mov_year from movie where mov_title like '%boogie%nights%';
+
+10.	write a query in sql to find the id number for the actor whose first name is 'woody' and the last name is 'allen'.
+select act_id from actor where act_fname='woody'  and act_lname='allen';
+ 
